@@ -33,7 +33,7 @@
             <Dropdown />
           </div>
         </div>
-        <h2>Ранее судимы?</h2>
+        <h2>Есть ли судимость?</h2>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:col-4 lg:mb-0">
             <Dropdown />
