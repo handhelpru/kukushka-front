@@ -3,7 +3,8 @@
     <div class="layout-footer-left">
       <span
         >Создано на хакатоне
-        <a href="https://projector2022.te-st.ru/">"Прожектор-2022"</a>
+        <a href="https://projector2022.te-st.ru">Прожектор-2022</a>
+        командой <a href="https://hand-help.ru">hand-help.ru</a>
       </span>
     </div>
 
