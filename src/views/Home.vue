@@ -9,13 +9,13 @@
             <Dropdown />
           </div>
         </div>
-        <h2>С каким наркотиком задержали?</h2>
+        <h2>Какой наркотик?</h2>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:col-4 lg:mb-0">
             <Dropdown />
           </div>
         </div>
-        <h2>Количество вещества (в граммах)</h2>
+        <h2>Количество (в граммах)</h2>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:col-4 lg:mb-0">
             <Dropdown />
