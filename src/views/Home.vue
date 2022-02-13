@@ -1,6 +1,14 @@
 <template>
   <h1>Предсказатель 228</h1>
   <h2>Что грозит за хранение наркотиков?</h2>
+  <div class="flex justify-content-center">
+    <p class="col-6">
+      На основе анализа ___ тысяч приговоров Предсказатель дает прогноз по
+      исходу дела по статье 228 УК в суде первой инстанции в зависимости от
+      региона, пола подсудимого, количества наркотика, не/непризнания вины,
+      не/судимости.
+    </p>
+  </div>
   <div class="grid flex justify-content-center">
     <div class="col-6 md:col-6 p-fluid flex justify-content-center">
       <div class="card">
@@ -13,7 +21,7 @@
         <h3>Количество (в граммах)</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
-            <InputNumber v-model="amount" mode="decimal" suffix=" г" />
+            <InputNumber v-model="amount" mode="decimal" suffix=" г" :min="0" />
           </div>
         </div>
         <h3>Пол</h3>
@@ -40,18 +48,6 @@
               :options="convictionList"
               optionLabel="name"
             />
-          </div>
-        </div>
-        <div v-if="conviction.value">
-          <h3>Отбывали наказание?</h3>
-          <div class="grid formgrid">
-            <div class="col-12 mb-2 lg:mb-0">
-              <Dropdown
-                v-model="imprisonment"
-                :options="imprisonmentList"
-                optionLabel="name"
-              />
-            </div>
           </div>
         </div>
       </div>
@@ -89,15 +85,10 @@ export default {
       sex: String,
       region: String,
       conviction: Boolean,
-      imprisonment: Boolean,
       drugsList: [],
       sexList: [],
       regionsList: [],
       convictionList: [
-        { name: "Да", value: true },
-        { name: "Нет", value: false },
-      ],
-      imprisonmentList: [
         { name: "Да", value: true },
         { name: "Нет", value: false },
       ],
