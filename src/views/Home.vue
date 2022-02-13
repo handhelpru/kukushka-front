@@ -45,7 +45,7 @@
             />
           </div>
         </div>
-        <!--        <h3>Есть ли судимость?</h3>
+        <h3>Есть ли судимость?</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <Dropdown
@@ -54,7 +54,7 @@
               optionLabel="name"
             />
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -115,6 +115,7 @@ export default {
         region: this.region.name,
         drug: this.drug.name,
         drug_amount: this.amount,
+        conviction: this.conviction.value,
       };
       console.log(payload);
       await axios.post(url, payload).then((response) => {
