@@ -1,13 +1,18 @@
 <template>
   <h1>Предсказатель 228</h1>
-  <h2>Что грозит за хранение наркотиков?</h2>
-  <div class="flex justify-content-center">
-    <p class="col-6">
-      На основе анализа ___ тысяч приговоров Предсказатель дает прогноз по
-      исходу дела по статье 228 УК в суде первой инстанции в зависимости от
-      региона, пола подсудимого, количества наркотика, не/непризнания вины,
-      не/судимости.
-    </p>
+  <p class="center">Протототип</p>
+  <h2>Узнайте, что грозит за хранение наркотиков</h2>
+  <div class="flex justify-content-center m-5">
+    <Accordion>
+      <AccordionTab header="Как это работает?">
+        <p>
+          Предсказатель анализирует ___ тысяч приговоров и дает прогноз по
+          статье 228 УК в суде первой инстанции. Исход дела зависит от от
+          региона, пола подсудимого, количества наркотика, признания вины и
+          наличия судимости
+        </p>
+      </AccordionTab>
+    </Accordion>
   </div>
   <div class="grid flex justify-content-center">
     <div class="col-6 md:col-6 p-fluid flex justify-content-center">
@@ -40,7 +45,7 @@
             />
           </div>
         </div>
-        <h3>Есть ли судимость?</h3>
+        <!--        <h3>Есть ли судимость?</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <Dropdown
@@ -49,7 +54,7 @@
               optionLabel="name"
             />
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -58,10 +63,11 @@
       <Button
         label="Узнать прогноз"
         class="p-button-lg"
-        @click="getMetaData()"
+        @click="getPredict()"
       />
     </div>
   </div>
+  <Prediction v-if="prediction.type" :prediction="prediction" />
 </template>
 
 <script>
@@ -70,12 +76,18 @@ import Button from "primevue/button";
 import Dropdown from "primevue/dropdown";
 import InputNumber from "primevue/inputnumber";
 import { drugsList, sexList, regionsList } from "@/data/formValues";
+import Prediction from "@/components/Prediction";
+import Accordion from "primevue/accordion";
+import AccordionTab from "primevue/accordiontab";
 
 export default {
   components: {
     Dropdown,
     Button,
     InputNumber,
+    Prediction,
+    Accordion,
+    AccordionTab,
   },
   data() {
     return {
@@ -96,16 +108,19 @@ export default {
     };
   },
   methods: {
-    async getMetaData() {
-      alert("Скоро ответим");
-      const url = "http://65.108.56.20:40000/metadata";
-      const response = await axios.get(url);
-      console.log(response);
-    },
     async getPredict() {
       const url = "http://65.108.56.20:40000/predict";
-      // const payload = {};
-      await axios.post(url);
+      const payload = {
+        sex: this.sex.name,
+        region: this.region.name,
+        drug: this.drug.name,
+        drug_amount: this.amount,
+      };
+      console.log(payload);
+      await axios.post(url, payload).then((response) => {
+        this.prediction = response.data;
+      });
+      console.log(this.prediction);
     },
   },
   mounted() {
@@ -120,8 +135,14 @@ h1 {
   text-align: center;
   font-size: 60px;
   margin-top: 60px;
+  margin-bottom: 10px;
 }
 h2 {
   text-align: center;
+}
+p {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 </style>
