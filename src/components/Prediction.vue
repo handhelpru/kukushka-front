@@ -3,7 +3,7 @@
     <template #content style="width: 25rem; margin-bottom: 2em">
       <div v-if="prediction.scenario_id == 1">
         <h2>Значительный размер веществ, но судимости нет</h2>
-        <h2>{{ prediction.punishment_text }}: {{ confidence }}%</h2>
+        <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <p>
           Рекомендации: По части 1 статьи 228 УК, суд может прекратить уголовное
           дело и назначить судебный штраф. Для этого подсудимый должен загладить
@@ -14,7 +14,7 @@
       </div>
       <div v-if="prediction.scenario_id == 2">
         <h2>Значительный размер веществ, но судимости нет</h2>
-        <h2>{{ prediction.punishment_text }}: {{ confidence }}%</h2>
+        <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <p>
           Рекомендации: Уголовное наказание можно заменить лечением или
           реабилитацией. О правилах назначения наказания, смягчающих вину
@@ -26,7 +26,7 @@
 
       <div v-if="prediction.scenario_id == 3">
         <h2>Крупный размер изъятого вещества</h2>
-        <h2>{{ prediction.punishment_text }}: {{ confidence }}%</h2>
+        <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <p>
           Рекомендации: Уголовное наказание можно заменить лечением или
           реабилитацией. О правилах назначения наказания, смягчающих вину
@@ -37,7 +37,7 @@
       </div>
       <div v-if="prediction.scenario_id == 4">
         <h2>Особо крупный размер вещества</h2>
-        <h2>{{ prediction.punishment_text }}: {{ confidence }}%</h2>
+        <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <p>
           Рекомендации: Уголовное наказание можно заменить лечением или
           реабилитацией. О правилах назначения наказания, смягчающих вину
@@ -48,7 +48,6 @@
       </div>
       <div v-if="prediction.scenario_id == 5">
         <h2>Менее значительного размера</h2>
-        <h2>{{ prediction.punishment_text }}: {{ confidence }}%</h2>
         <p>
           <b>Приобретение и хранение</b> такого количества наркотиков не
           считается уголовным преступлением (<a
