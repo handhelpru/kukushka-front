@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     async getPredict() {
-      const url = "http://65.108.56.20:40000/predict";
+      const url = "http://65.108.56.20:40000/test_predict";
       const payload = {
         sex: this.sex.name,
         region: this.region.name,
