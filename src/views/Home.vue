@@ -92,7 +92,7 @@ export default {
         { name: "Да", value: true },
         { name: "Нет", value: false },
       ],
-      predict: {},
+      prediction: {},
     };
   },
   methods: {
