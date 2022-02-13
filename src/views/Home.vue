@@ -1,5 +1,6 @@
 <template>
   <h1>Предсказатель 228</h1>
+  <h2>Что грозит за хранение наркотиков?</h2>
   <div class="grid flex justify-content-center">
     <div class="col-6 md:col-6 p-fluid flex justify-content-center">
       <div class="card">
@@ -108,6 +109,9 @@ export default {
       const url = "http://65.108.56.20:40000/metadata";
       const response = await axios.get(url);
       console.log(response);
+    },
+    getResult() {
+
     },
     async getPredict() {
       const url = "http://65.108.56.20:40000/predict";

@@ -1,4 +1,4 @@
-# kukushka-front
+# orakul-front
 
 ## Project setup
 ```
