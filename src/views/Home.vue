@@ -4,25 +4,25 @@
   <div class="grid flex justify-content-center">
     <div class="col-6 md:col-6 p-fluid flex justify-content-center">
       <div class="card">
-        <h2>Какой наркотик?</h2>
+        <h3>Какой наркотик?</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <Dropdown v-model="drug" :options="drugsList" optionLabel="name" />
           </div>
         </div>
-        <h2>Количество (в граммах)</h2>
+        <h3>Количество (в граммах)</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <InputNumber v-model="amount" mode="decimal" suffix=" г" />
           </div>
         </div>
-        <h2>Пол</h2>
+        <h3>Пол</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <Dropdown v-model="sex" :options="sexList" optionLabel="name" />
           </div>
         </div>
-        <h2>Регион (Москвы пока нет)</h2>
+        <h3>Регион (Москвы пока нет)</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <Dropdown
@@ -32,7 +32,7 @@
             />
           </div>
         </div>
-        <h2>Есть ли судимость?</h2>
+        <h3>Есть ли судимость?</h3>
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:mb-0">
             <Dropdown
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div v-if="conviction.value">
-          <h2>Отбывали наказание?</h2>
+          <h3>Отбывали наказание?</h3>
           <div class="grid formgrid">
             <div class="col-12 mb-2 lg:mb-0">
               <Dropdown
@@ -106,12 +106,10 @@ export default {
   },
   methods: {
     async getMetaData() {
+      alert("Скоро ответим");
       const url = "http://65.108.56.20:40000/metadata";
       const response = await axios.get(url);
       console.log(response);
-    },
-    getResult() {
-
     },
     async getPredict() {
       const url = "http://65.108.56.20:40000/predict";
@@ -131,5 +129,8 @@ h1 {
   text-align: center;
   font-size: 60px;
   margin-top: 60px;
+}
+h2 {
+  text-align: center;
 }
 </style>
