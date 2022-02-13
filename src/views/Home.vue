@@ -67,7 +67,7 @@
       />
     </div>
   </div>
-  <Prediction v-if="prediction.type" :prediction="prediction" />
+  <Prediction v-if="prediction.scenario_id" :prediction="prediction" />
 </template>
 
 <script>
