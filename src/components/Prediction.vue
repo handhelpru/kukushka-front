@@ -101,7 +101,7 @@ export default {
   },
   mounted() {
     console.log(this.prediction);
-    this.confidence = this.prediction * 100;
+    this.confidence = this.prediction.confidence * 100;
     this.confidence = this.confidence.toFixed(2);
   },
   //   computed: {
