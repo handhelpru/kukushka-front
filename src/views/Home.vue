@@ -110,6 +110,7 @@ export default {
   methods: {
     async getPredict() {
       const url = `${process.env.VUE_APP_API_HOST}/predict`;
+      console.log(url);
       const payload = {
         sex: this.sex.name,
         region: this.region.name,
