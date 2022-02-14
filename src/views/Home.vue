@@ -6,10 +6,9 @@
     <Accordion>
       <AccordionTab header="Как это работает?">
         <p>
-          Предсказатель анализирует приговоры и дает прогноз по
-          статье 228 УК в суде первой инстанции. Исход дела зависит от от
-          региона, пола подсудимого, количества наркотика, признания вины и
-          наличия судимости
+          Предсказатель анализирует приговоры и дает прогноз по статье 228 УК в
+          суде первой инстанции. Исход дела зависит от от региона, пола
+          подсудимого, количества наркотика, признания вины и наличия судимости
         </p>
       </AccordionTab>
     </Accordion>
@@ -67,7 +66,9 @@
       />
     </div>
   </div>
-  <Prediction v-if="prediction.scenario_id" :prediction="prediction" />
+  <div class="flex justify-content-center m-5">
+    <Prediction v-if="prediction.scenario_id" :prediction="prediction" />
+  </div>
 </template>
 
 <script>
