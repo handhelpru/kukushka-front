@@ -61,8 +61,15 @@
     <div class="p-fluid flex justify-content-center">
       <Button
         label="Узнать прогноз"
-        class="p-button-lg"
+        class="p-button-lg m-1"
         @click="getPredict()"
+      />
+    </div>
+    <div class="p-2">
+      <Button
+        icon="pi pi-refresh"
+        class="p-button-rounded p-button-help"
+        @click="cleanForm()"
       />
     </div>
   </div>
@@ -118,9 +125,24 @@ export default {
         drug_amount: this.amount,
         conviction: this.conviction.value,
       };
-      await axios.post(url, payload).then((response) => {
-        this.prediction = response.data;
-      });
+      await axios
+        .post(url, payload)
+        .then((response) => {
+          this.prediction = response.data;
+        })
+        .catch((e) => {
+          if (e.response.status === 422) {
+            alert("Заполните все поля");
+          }
+        });
+    },
+    cleanForm() {
+      this.drug = "";
+      this.amount = 0;
+      this.sex = {};
+      this.region = {};
+      this.conviction = {};
+      this.prediction = {};
     },
   },
   mounted() {
