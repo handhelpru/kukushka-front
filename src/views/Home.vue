@@ -6,7 +6,7 @@
     <Accordion>
       <AccordionTab header="Как это работает?">
         <p>
-          Предсказатель анализирует ___ тысяч приговоров и дает прогноз по
+          Предсказатель анализирует приговоры и дает прогноз по
           статье 228 УК в суде первой инстанции. Исход дела зависит от от
           региона, пола подсудимого, количества наркотика, признания вины и
           наличия судимости
@@ -117,11 +117,9 @@ export default {
         drug_amount: this.amount,
         conviction: this.conviction.value,
       };
-      console.log(payload);
       await axios.post(url, payload).then((response) => {
         this.prediction = response.data;
       });
-      console.log(this.prediction);
     },
   },
   mounted() {
