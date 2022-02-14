@@ -2,7 +2,7 @@
   <Card style="width: 40rem; margin-bottom: 2em">
     <template #content>
       <div v-if="prediction.scenario_id == 1">
-        <h2>Значительный размер веществ, но судимости нет</h2>
+        <!-- <h2>Значительный размер веществ, но судимости нет</h2> -->
         <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <h3 class="sorry">Но это не точно, предсказатель еще учится</h3>
 
@@ -15,7 +15,7 @@
         </p>
       </div>
       <div v-if="prediction.scenario_id == 2">
-        <h2>Значительный размер веществ, но судимости нет</h2>
+         <!--<h2>Значительный размер веществ, но судимости нет</h2>-->
         <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <h3 class="sorry">Но это не точно, предсказатель еще учится</h3>
         <h4>Рекомендации:</h4>
@@ -29,7 +29,7 @@
       </div>
 
       <div v-if="prediction.scenario_id == 3">
-        <h2>Крупный размер изъятого вещества</h2>
+         <!--<h2>Крупный размер изъятого вещества</h2>-->
         <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <h3 class="sorry">Но это не точно, предсказатель еще учится</h3>
         <h4>Рекомендации:</h4>
@@ -42,7 +42,7 @@
         </p>
       </div>
       <div v-if="prediction.scenario_id == 4">
-        <h2>Особо крупный размер вещества</h2>
+         <!-- <h2>Особо крупный размер вещества</h2>-->
         <h2>{{ prediction.punishment_text }}: вероятность {{ confidence }}%</h2>
         <h3 class="sorry">Но это не точно, предсказатель еще учится</h3>
         <h4>Рекомендации:</h4>
